@@ -387,17 +387,20 @@ tr:last-child td {
 
 .flow li {
   counter-increment: flow;
-  display: grid;
-  grid-template-columns: 38px 1fr;
-  gap: 12px;
+  position: relative;
+  display: block;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper);
-  padding: 14px;
+  min-height: 58px;
+  padding: 14px 14px 14px 64px;
 }
 
 .flow li::before {
   content: counter(flow);
+  position: absolute;
+  left: 14px;
+  top: 14px;
   display: grid;
   place-items: center;
   width: 30px;
