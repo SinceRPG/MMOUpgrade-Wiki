@@ -4,24 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MMOUpgrade Wiki</title>
-    <meta name="description" content="A polished user wiki for MMOUpgrade, the MMOItems upgrade plugin for Paper and Folia." />
+    <meta name="description" content="Complete user wiki for MMOUpgrade, the MMOItems upgrade plugin for Paper and Folia." />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="#overview" aria-label="MMOUpgrade Wiki home">
+      <a class="brand" href="./index.html" aria-label="MMOUpgrade Wiki home">
         <span class="mark">M</span>
-        <span>
-          <strong>MMOUpgrade</strong>
-          <span>User Wiki</span>
-        </span>
+        <span><strong>MMOUpgrade</strong><span>User Wiki</span></span>
       </a>
-
       <label class="search">
-        <span class="hidden">Search wiki</span>
-        <input id="search" type="search" placeholder="Search commands, config, custom stats..." />
+        <span class="hidden">Search this page</span>
+        <input id="search" type="search" placeholder="Search this page..." />
       </label>
-
       <span class="version">v2.0 docs</span>
     </header>
 
@@ -29,421 +24,80 @@
       <aside class="sidebar" aria-label="Wiki navigation">
         <p class="nav-title">Documentation</p>
         <nav class="nav">
-          <a href="#overview">Overview</a>
-          <a href="#install">Install</a>
-          <a href="#license">Free vs Premium</a>
-          <a href="#commands">Commands</a>
-          <a href="#flow">Upgrade Flow</a>
-          <a href="#config">Config Files</a>
-          <a href="#gui">GUI</a>
-          <a href="#economy">Economy</a>
-          <a href="#items">Stones & Charms</a>
-          <a href="#rules">Upgrade Rules</a>
-          <a href="#custom-stats">Custom Stats</a>
-          <a href="#modifiers">Stat Modifiers</a>
-          <a href="#messages">Messages</a>
-          <a href="#troubleshooting">Troubleshooting</a>
+          <a href="./index.html">Overview</a>
+          <a href="./install.html">Install</a>
+          <a href="./license.html">Free vs Premium</a>
+          <a href="./commands.html">Commands</a>
+          <a href="./configuration.html">Config A-Z</a>
+          <a href="./gui-economy.html">GUI & Economy</a>
+          <a href="./items-upgrade.html">Stones & Charms</a>
+          <a href="./upgrade-rules.html">Upgrade Rules</a>
+          <a href="./custom-stats.html">Custom Stats</a>
+          <a href="./stat-modifiers.html">Stat Modifiers</a>
+          <a href="./messages-announcements.html">Messages</a>
+          <a href="./troubleshooting.html">Troubleshooting</a>
         </nav>
       </aside>
 
       <main class="content">
         <section id="overview" class="hero" data-search-section>
           <span class="eyebrow">MMOItems Upgrade System</span>
-          <h1>Build a polished upgrade loop for MMOItems gear.</h1>
+          <h1>Configure MMOUpgrade from A to Z.</h1>
           <p class="lead">
-            MMOUpgrade gives players a configurable GUI for upgrading MMOItems with stones, lucky charms,
-            protect charms, level-based success rates, stat scaling, license-based feature limits, and Folia-safe
-            server behavior.
+            MMOUpgrade adds a configurable GUI for upgrading MMOItems gear with upgrade stones, lucky charms,
+            protect charms, level-based success rates, stat modifiers, Premium enchantment modifiers,
+            per-item custom stats, and Paper/Folia-safe behavior.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#install">Start setup</a>
-            <a class="button" href="#custom-stats">Configure custom stats</a>
-            <a class="button" href="#troubleshooting">Fix common issues</a>
+            <a class="button primary" href="./configuration.html">Read Config A-Z</a>
+            <a class="button" href="./license.html">View Premium Features</a>
+            <a class="button" href="./stat-modifiers.html">Configure Modifiers</a>
           </div>
 
           <div class="statline" aria-label="Feature summary">
-            <div class="metric">
-              <strong>8</strong>
-              <span>Generated config files</span>
-            </div>
-            <div class="metric">
-              <strong>6</strong>
-              <span>MMOUpgrade custom stats</span>
-            </div>
-            <div class="metric">
-              <strong>2</strong>
-              <span>License modes</span>
-            </div>
-            <div class="metric">
-              <strong>1</strong>
-              <span>Unified GUI config</span>
-            </div>
+            <div class="metric"><strong>8</strong><span>Generated config files</span></div>
+            <div class="metric"><strong>6</strong><span>MMOItems custom stats</span></div>
+            <div class="metric"><strong>2</strong><span>License modes</span></div>
+            <div class="metric"><strong>1</strong><span>Unified GUI config</span></div>
           </div>
         </section>
 
-        <section id="install" class="section" data-search-section>
-          <h2>Install</h2>
-          <p>MMOUpgrade is designed for Paper or Folia servers running MMOItems-based gameplay.</p>
-
+        <section id="quick-start" class="section" data-search-section>
+          <h2>Recommended Reading Order</h2>
           <div class="grid three">
             <article class="card">
-              <h3>Required Plugins</h3>
-              <p>Install MMOItems, MythicLib, and PlaceholderAPI before loading MMOUpgrade.</p>
+              <h3>1. Install the plugin</h3>
+              <p>Check server requirements, required dependencies, and the first startup config generation flow.</p>
+              <a class="text-link" href="./install.html">Open install guide</a>
             </article>
             <article class="card">
-              <h3>Recommended Server</h3>
-              <p>Use Java 21 with a Paper or Folia server matching Minecraft 1.21.1.</p>
+              <h3>2. Configure the main files</h3>
+              <p>Understand every generated file: license, commands, GUI, items, upgrade rules, modifiers, and messages.</p>
+              <a class="text-link" href="./configuration.html">Open Config A-Z</a>
             </article>
             <article class="card">
-              <h3>First Start</h3>
-              <p>Start once to generate configs, then edit them and run <code>/mmoupgrade reload</code>.</p>
-            </article>
-          </div>
-
-          <h3>Generated Files</h3>
-          <pre><code>config.yml
-commands.yml
-gui.yml
-items.yml
-upgrade.yml
-stat-modifiers.yml
-announcements.yml
-message.yml</code></pre>
-        </section>
-
-        <section id="license" class="section" data-search-section>
-          <h2>Free vs Premium</h2>
-          <p>Free mode keeps the core upgrade system usable. Premium mode removes caps and unlocks per-item control.</p>
-
-          <table class="feature-table">
-            <thead>
-              <tr>
-                <th>Feature</th>
-                <th>Free</th>
-                <th>Premium</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Upgrade GUI, stones, charms</td>
-                <td>Available</td>
-                <td>Available</td>
-              </tr>
-              <tr>
-                <td>Maximum item level</td>
-                <td>Limited by <code>license-limits.free.max-level</code></td>
-                <td>Uses full <code>max-level</code> and per-item max level</td>
-              </tr>
-              <tr>
-                <td>Success chance cap</td>
-                <td>Limited by <code>license-limits.free.max-success-chance</code></td>
-                <td>Uses full <code>success-chance.max-percent</code></td>
-              </tr>
-              <tr>
-                <td>Custom MMOItems override stats</td>
-                <td>Ignored except <code>MMOUPGRADE_LEVEL</code></td>
-                <td>Enabled</td>
-              </tr>
-              <tr>
-                <td>Enchantment modifiers</td>
-                <td>Disabled</td>
-                <td>Enabled</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="grid two">
-            <div class="card">
-              <h3>Free Limits</h3>
-              <pre><code>license-limits:
-  free:
-    max-level: 10
-    max-success-chance: 75</code></pre>
-            </div>
-            <div class="card">
-              <h3>License Key</h3>
-              <pre><code>license-key: ""</code></pre>
-              <p>Empty keys run Free mode. Valid keys log <code>Premium License verified</code> during startup or reload.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="commands" class="section" data-search-section>
-          <h2>Commands</h2>
-          <p>Command names, aliases, nodes, and permissions are configurable in <code>commands.yml</code>.</p>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Command</th>
-                <th>Permission</th>
-                <th>Use</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>/mmoupgrade upgrade</code></td>
-                <td><code>mmoupgrade.use</code></td>
-                <td>Open your own upgrade GUI.</td>
-              </tr>
-              <tr>
-                <td><code>/mmoupgrade upgrade &lt;player&gt;</code></td>
-                <td><code>mmoupgrade.admin</code></td>
-                <td>Open the GUI for another online player.</td>
-              </tr>
-              <tr>
-                <td><code>/mmoupgrade reload</code></td>
-                <td><code>mmoupgrade.admin</code></td>
-                <td>Reload configs and validate the license again.</td>
-              </tr>
-              <tr>
-                <td><code>/mmoupgrade stats</code></td>
-                <td><code>mmoupgrade.admin</code></td>
-                <td>Print registered stat IDs for <code>stat-modifiers.yml</code>.</td>
-              </tr>
-              <tr>
-                <td><code>/mmoupgrade config set-*</code></td>
-                <td><code>mmoupgrade.admin</code></td>
-                <td>Edit simple config values from game or console.</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section id="flow" class="section" data-search-section>
-          <h2>Upgrade Flow</h2>
-          <ol class="flow">
-            <li>MMOUpgrade checks the player's money using PlaceholderAPI.</li>
-            <li>The upgrade item and upgrade stone slots are validated.</li>
-            <li>The current level is read from <code>MMOUPGRADE_LEVEL</code>.</li>
-            <li>Success chance is calculated from stone, lucky charm, level bonus, and license cap.</li>
-            <li>On success, the item gains one level and stat modifiers are applied.</li>
-            <li>On failure, a protect charm may prevent downgrade; otherwise the item may lose one level.</li>
-            <li>Configured consumables are removed and the economy command runs as console.</li>
-            <li>Messages and optional level announcements are sent.</li>
-          </ol>
-        </section>
-
-        <section id="config" class="section" data-search-section>
-          <h2>Config Files</h2>
-          <div class="grid two">
-            <article class="card"><h3><code>config.yml</code></h3><p>License key and startup log message.</p></article>
-            <article class="card"><h3><code>commands.yml</code></h3><p>Root command, aliases, permissions, node names, and suggestions.</p></article>
-            <article class="card"><h3><code>gui.yml</code></h3><p>GUI title, size, button items, slots, cost, placeholders, and charge command.</p></article>
-            <article class="card"><h3><code>items.yml</code></h3><p>MMOItems upgrade stones, lucky charms, and protect charms.</p></article>
-            <article class="card"><h3><code>upgrade.yml</code></h3><p>Max levels, free limits, allowed types, level lore, failure behavior, and chance bonuses.</p></article>
-            <article class="card"><h3><code>stat-modifiers.yml</code></h3><p>MMOItems stat and enchantment changes applied when upgrading or downgrading.</p></article>
-          </div>
-        </section>
-
-        <section id="gui" class="section" data-search-section>
-          <h2>GUI</h2>
-          <p>The entire upgrade inventory lives in <code>gui.yml</code>.</p>
-          <pre><code>title: "&lt;dark_gray&gt;Item Upgrade&lt;/dark_gray&gt;"
-size: 45
-
-buttons:
-  confirm:
-    material: LIME_STAINED_GLASS_PANE
-    slots: [40]
-    cost: 10000
-    display: "&lt;green&gt;Upgrade Item&lt;/green&gt;"
-    lore:
-      - "&lt;gray&gt;Cost: &lt;white&gt;{cost}&lt;/white&gt;&lt;/gray&gt;"</code></pre>
-
-          <div class="grid two">
-            <article class="card">
-              <h3>Slot Types</h3>
-              <p><code>confirm</code>, <code>upgrade-stone</code>, <code>lucky-charm</code>, <code>upgrade-item</code>, <code>protect-charm</code>, and <code>filler</code>.</p>
-            </article>
-            <article class="card">
-              <h3>Button Placeholders</h3>
-              <p>Any simple value in the same button section can be used as <code>{key}</code>, such as <code>{cost}</code>, <code>{amount}</code>, or <code>{material}</code>.</p>
+              <h3>3. Test in game</h3>
+              <p>Use <code>/mmoupgrade upgrade</code>, attempt an upgrade, and check troubleshooting if slots reject items.</p>
+              <a class="text-link" href="./troubleshooting.html">Open troubleshooting</a>
             </article>
           </div>
         </section>
 
-        <section id="economy" class="section" data-search-section>
-          <h2>Economy</h2>
-          <p>Economy is command-based so it works with many economy plugins.</p>
-          <pre><code>buttons:
-  confirm:
-    cost: 10000
-    money-placeholder: "%vault_eco_balance_fixed%"
-    money-display-placeholder: "%vault_eco_balance_commas%"
-    charge-command: "eco take %player_name% {amount}"</code></pre>
-          <div class="callout gold">
-            <strong>Important:</strong> <code>money-placeholder</code> must return a plain number. Use formatted values
-            only in <code>money-display-placeholder</code>.
-          </div>
-        </section>
-
-        <section id="items" class="section" data-search-section>
-          <h2>Upgrade Stones and Charms</h2>
-          <p><code>items.yml</code> only supports MMOItems items. Use <code>MMOITEMS_TYPE:MMOITEMS_ITEM_ID</code>.</p>
-          <pre><code>upgrade-stones:
-  basic:
-    id: CONSUMABLE:UPGRADE_STONE_1
-    chance: 50
-
-lucky-charms:
-  basic:
-    id: CONSUMABLE:LUCKY_CHARM_1
-    chance: 20
-
-protect-charms:
-  basic:
-    id: CONSUMABLE:PROTECT_CHARM_1</code></pre>
-
-          <table>
-            <thead><tr><th>Group</th><th>Purpose</th><th>Needs Chance?</th></tr></thead>
-            <tbody>
-              <tr><td><code>upgrade-stones</code></td><td>Base upgrade success chance.</td><td>Yes</td></tr>
-              <tr><td><code>lucky-charms</code></td><td>Extra success chance if inserted.</td><td>Yes</td></tr>
-              <tr><td><code>protect-charms</code></td><td>Prevents downgrade on failure.</td><td>No</td></tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section id="rules" class="section" data-search-section>
-          <h2>Upgrade Rules</h2>
-          <p>Core upgrade behavior is configured in <code>upgrade.yml</code>.</p>
-          <pre><code>max-level: 25
-
-license-limits:
-  free:
-    max-level: 10
-    max-success-chance: 75
-
-allowed-types:
-  - SWORD
-  - ARMOR
-
-failure:
-  downgrade: true
-  protect-charm-prevents-downgrade: true</code></pre>
+        <section id="features" class="section" data-search-section>
+          <h2>Main Pages</h2>
           <div class="grid two">
-            <div class="card"><h3>Success Formula</h3><p><code>stone chance + lucky chance + level bonus</code>, then capped by license mode.</p></div>
-            <div class="card"><h3>Level Lore</h3><p>Use <code>level-lore-format</code> with <code>{level}</code> to show the current upgrade level.</p></div>
-          </div>
-        </section>
-
-        <section id="custom-stats" class="section" data-search-section>
-          <h2>MMOItems Custom Stats</h2>
-          <p>MMOUpgrade registers custom stats in MMOItems on startup. Add them to MMOItems item configs exactly like other MMOItems stats, then regenerate or re-give the item.</p>
-          <div class="callout">
-            <strong>Premium note:</strong> <code>MMOUPGRADE_LEVEL</code> is always used. The per-item override stats below are Premium features.
-          </div>
-
-          <table>
-            <thead><tr><th>Stat</th><th>Type</th><th>Use</th></tr></thead>
-            <tbody>
-              <tr><td><code>MMOUPGRADE_LEVEL</code></td><td>Double</td><td>Stores the current upgrade level.</td></tr>
-              <tr><td><code>MMOUPGRADE_MAX_LEVEL</code></td><td>Double</td><td>Overrides global max level for one item.</td></tr>
-              <tr><td><code>MMOUPGRADE_ENABLED</code></td><td>Boolean</td><td>Allows or blocks upgrading for one item.</td></tr>
-              <tr><td><code>MMOUPGRADE_STONE_CHANCE</code></td><td>String</td><td>Formula replacing upgrade stone chance.</td></tr>
-              <tr><td><code>MMOUPGRADE_LUCKY_CHANCE</code></td><td>String</td><td>Formula replacing lucky charm bonus chance.</td></tr>
-              <tr><td><code>MMOUPGRADE_PROTECT_CHANCE</code></td><td>String</td><td>Formula for protect charm downgrade prevention chance.</td></tr>
-            </tbody>
-          </table>
-
-          <h3>Practical Examples</h3>
-          <div class="grid three">
-            <article class="card">
-              <span class="badge">Premium</span>
-              <h3>Legendary Max Level</h3>
-              <pre><code>MMOUPGRADE_MAX_LEVEL = 50</code></pre>
-              <p>Use this for rare item lines that should exceed the global cap.</p>
-            </article>
-            <article class="card">
-              <span class="badge">Premium</span>
-              <h3>Enable A Special Bow</h3>
-              <pre><code>MMOUPGRADE_ENABLED = true</code></pre>
-              <p>Useful when <code>allowed-types</code> does not include <code>BOW</code>.</p>
-            </article>
-            <article class="card">
-              <span class="badge">Premium</span>
-              <h3>Scaling Stone Chance</h3>
-              <pre><code>MMOUPGRADE_STONE_CHANCE =
-100 - ({level} * 5)</code></pre>
-              <p>Level 0 is 100%, level 10 is 50% before modifiers and caps.</p>
-            </article>
-          </div>
-
-          <h3>Formula Tips</h3>
-          <pre><code>100 - ({level} * 5)
-50 + ({level} * 2)
-25</code></pre>
-        </section>
-
-        <section id="modifiers" class="section" data-search-section>
-          <h2>Stat Modifiers</h2>
-          <p>Use <code>stat-modifiers.yml</code> to scale MMOItems stats as upgrade levels change.</p>
-          <pre><code>stat-modifiers:
-  attack-damage:
-    operation: ADD
-    amount: 0.5-1
-  mana-cost:
-    operation: SUBTRACT
-    amount: 0.5-1</code></pre>
-          <div class="grid two">
-            <article class="card"><h3>Amount Values</h3><p>Use fixed values like <code>1</code> or random ranges like <code>0.5-1</code>.</p></article>
-            <article class="card"><h3>Stat IDs</h3><p>Use lowercase hyphenated IDs. Run <code>/mmoupgrade stats</code> to list registered IDs.</p></article>
-          </div>
-          <h3>Premium Enchantment Modifiers</h3>
-          <pre><code>enchantments:
-  sharpness:
-    operation: ADD
-    amount: 1-1
-    max: 5</code></pre>
-          <p>The item must already have the enchantment for MMOUpgrade to modify it.</p>
-        </section>
-
-        <section id="messages" class="section" data-search-section>
-          <h2>Messages and Announcements</h2>
-          <p>Player text is configured in <code>message.yml</code>. Broadcast levels are configured in <code>announcements.yml</code>.</p>
-          <div class="grid two">
-            <div class="card">
-              <h3>Formatting</h3>
-              <pre><code>&lt;green&gt;Upgrade successful.&lt;/green&gt;
-&lt;red&gt;Upgrade failed.&lt;/red&gt;
-&lt;#55ffff&gt;Custom hex color&lt;/#55ffff&gt;</code></pre>
-            </div>
-            <div class="card">
-              <h3>Announcement Levels</h3>
-              <pre><code>enabled: true
-levels:
-  - 5
-  - 10
-  - 15
-  - 20
-  - 25</code></pre>
-            </div>
-          </div>
-        </section>
-
-        <section id="troubleshooting" class="section" data-search-section>
-          <h2>Troubleshooting</h2>
-          <div class="grid two">
-            <article class="card"><h3>Stone or charm is not accepted</h3><p>Check <code>items.yml</code> uses <code>MMOITEMS_TYPE:MMOITEMS_ITEM_ID</code>, such as <code>CONSUMABLE:UPGRADE_STONE_1</code>.</p></article>
-            <article class="card"><h3>Item stops at level 10</h3><p>You are probably in Free mode. Check <code>license-limits.free.max-level</code> or validate a Premium key.</p></article>
-            <article class="card"><h3>Chance never goes above 75%</h3><p>Free mode caps final chance with <code>license-limits.free.max-success-chance</code>.</p></article>
-            <article class="card"><h3>Custom stats do not work</h3><p>Check Premium mode, exact stat IDs, correct value type, and regenerate or re-give the MMOItems item.</p></article>
-            <article class="card"><h3>Money is not charged</h3><p>Check <code>charge-command</code>. It runs as console and must match your economy plugin.</p></article>
-            <article class="card"><h3>Tooltip shows minecraft keys</h3><p>That is Minecraft Advanced Tooltips. Toggle it with <code>F3 + H</code>.</p></article>
-          </div>
-          <div class="callout rose">
-            <strong>License issues:</strong> read the console line after <code>Checking LicenseGate license for MMOUpgrade...</code>.
-            It will say whether the key is expired, invalid, unreachable, or valid.
+            <article class="card"><h3>Free vs Premium</h3><p>Premium unlocks per-item custom stats and enchantment modifiers. Free keeps the GUI, stones, charms, and normal stat modifiers, but has level and chance limits.</p></article>
+            <article class="card"><h3>GUI & Economy</h3><p>Explains title, size, button slots, money placeholders, charge command, item models, tooltip style, and lore.</p></article>
+            <article class="card"><h3>Upgrade Rules</h3><p>Explains max level, allowed types, level display, consumed items, failure downgrade behavior, protect charms, and the success formula.</p></article>
+            <article class="card"><h3>Stat Modifiers</h3><p>Explains how to scale MMOItems stats, range stats, string ranges, Premium enchantment modifiers, min/max, and chance.</p></article>
           </div>
         </section>
 
         <footer class="footer">
-          <p>MMOUpgrade Wiki for server owners. Built from the repository's <code>docs/</code> folder.</p>
+          <p>MMOUpgrade Wiki lives in the repository <code>docs/</code> folder and can be opened directly from <code>index.html</code>.</p>
         </footer>
       </main>
     </div>
-
     <script src="./wiki.js"></script>
   </body>
 </html>

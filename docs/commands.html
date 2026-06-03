@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Commands - MMOUpgrade Wiki</title><link rel="stylesheet" href="./styles.css" /></head>
+  <body><header class="topbar"><a class="brand" href="./index.html"><span class="mark">M</span><span><strong>MMOUpgrade</strong><span>User Wiki</span></span></a><label class="search"><span class="hidden">Search</span><input id="search" type="search" placeholder="Search this page..." /></label><span class="version">v2.0 docs</span></header>
+    <div class="layout"><aside class="sidebar"><p class="nav-title">Documentation</p><nav class="nav"><a href="./index.html">Overview</a><a href="./install.html">Install</a><a href="./license.html">Free vs Premium</a><a href="./commands.html">Commands</a><a href="./configuration.html">Config A-Z</a><a href="./gui-economy.html">GUI & Economy</a><a href="./items-upgrade.html">Stones & Charms</a><a href="./upgrade-rules.html">Upgrade Rules</a><a href="./custom-stats.html">Custom Stats</a><a href="./stat-modifiers.html">Stat Modifiers</a><a href="./messages-announcements.html">Messages</a><a href="./troubleshooting.html">Troubleshooting</a></nav></aside>
+      <main class="content">
+        <section class="section page-title" data-search-section><span class="eyebrow">Commands</span><h1>Commands and permissions</h1><p class="lead">Command name, aliases, permissions, node names, argument names, and tab-completion suggestions are configured in <code>commands.yml</code>.</p></section>
+        <section class="section" data-search-section>
+          <h2>Default Commands</h2>
+          <table><thead><tr><th>Command</th><th>Permission</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td><code>/mmoupgrade upgrade</code> or <code>/mmou upgrade</code></td><td><code>mmoupgrade.use</code></td><td>Open the upgrade GUI for yourself.</td></tr>
+            <tr><td><code>/mmoupgrade upgrade &lt;player&gt;</code></td><td><code>mmoupgrade.admin</code></td><td>Open the upgrade GUI for another online player.</td></tr>
+            <tr><td><code>/mmoupgrade reload</code></td><td><code>mmoupgrade.admin</code></td><td>Reload configs and validate the license again.</td></tr>
+            <tr><td><code>/mmoupgrade stats</code></td><td><code>mmoupgrade.admin</code></td><td>Print registered stat IDs for <code>stat-modifiers.yml</code>.</td></tr>
+            <tr><td><code>/mmoupgrade config set-string &lt;path&gt; &lt;value&gt;</code></td><td><code>mmoupgrade.admin</code></td><td>Set a supported string config value.</td></tr>
+            <tr><td><code>/mmoupgrade config set-integer &lt;path&gt; &lt;value&gt;</code></td><td><code>mmoupgrade.admin</code></td><td>Set an integer value, such as <code>upgrade.max-level 30</code>.</td></tr>
+            <tr><td><code>/mmoupgrade config set-double &lt;path&gt; &lt;value&gt;</code></td><td><code>mmoupgrade.admin</code></td><td>Set a decimal value.</td></tr>
+          </tbody></table>
+        </section>
+        <section class="section" data-search-section>
+          <h2>Full Example</h2>
+          <pre><code>name: mmoupgrade
+aliases:
+  - mmou
+description: "Opens and manages the MMOUpgrade interface."
+
+permission-use: mmoupgrade.use
+permission-admin: mmoupgrade.admin
+
+nodes:
+  upgrade: upgrade
+  reload: reload
+  stats: stats
+  config: config
+  set-string: set-string
+  set-integer: set-integer
+  set-double: set-double
+
+arguments:
+  player: player
+  path: path
+  value: value
+
+suggestions:
+  config-paths:
+    - upgrade.max-level
+    - upgrade.level-display.mode
+    - upgrade.level-display.name-format
+    - upgrade.level-display.lore-format
+    - upgrade.level-display.lore-position
+    - upgrade.level-display.lore-index
+    - debug.enchant-modifiers
+    - upgrade.failure.downgrade
+    - upgrade.success-chance.max-percent</code></pre>
+        </section>
+      </main>
+    </div><script src="./wiki.js"></script>
+  </body>
+</html>

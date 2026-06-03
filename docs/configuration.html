@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Config A-Z - MMOUpgrade Wiki</title><link rel="stylesheet" href="./styles.css" /></head>
+  <body><header class="topbar"><a class="brand" href="./index.html"><span class="mark">M</span><span><strong>MMOUpgrade</strong><span>User Wiki</span></span></a><label class="search"><span class="hidden">Search</span><input id="search" type="search" placeholder="Search this page..." /></label><span class="version">v2.0 docs</span></header>
+    <div class="layout"><aside class="sidebar"><p class="nav-title">Documentation</p><nav class="nav"><a href="./index.html">Overview</a><a href="./install.html">Install</a><a href="./license.html">Free vs Premium</a><a href="./commands.html">Commands</a><a href="./configuration.html">Config A-Z</a><a href="./gui-economy.html">GUI & Economy</a><a href="./items-upgrade.html">Stones & Charms</a><a href="./upgrade-rules.html">Upgrade Rules</a><a href="./custom-stats.html">Custom Stats</a><a href="./stat-modifiers.html">Stat Modifiers</a><a href="./messages-announcements.html">Messages</a><a href="./troubleshooting.html">Troubleshooting</a></nav></aside>
+      <main class="content">
+        <section class="section page-title" data-search-section><span class="eyebrow">Configuration</span><h1>MMOUpgrade Config A-Z</h1><p class="lead">This page is the full config map. Each generated file owns a specific area; use the detailed pages for full examples and explanations.</p></section>
+        <section class="section" data-search-section>
+          <h2>Config File Map</h2>
+          <table><thead><tr><th>File</th><th>Purpose</th><th>Detailed Page</th></tr></thead><tbody>
+            <tr><td><code>config.yml</code></td><td>License key and enchantment modifier debug logging.</td><td><a href="./license.html">Free vs Premium</a></td></tr>
+            <tr><td><code>commands.yml</code></td><td>Root command, aliases, permissions, subcommand names, argument names, and tab suggestions.</td><td><a href="./commands.html">Commands</a></td></tr>
+            <tr><td><code>gui.yml</code></td><td>Inventory title, size, buttons, placeholder slots, cost, money placeholder, charge command, model, and tooltip options.</td><td><a href="./gui-economy.html">GUI & Economy</a></td></tr>
+            <tr><td><code>items.yml</code></td><td>MMOItems used as upgrade stones, lucky charms, and protect charms.</td><td><a href="./items-upgrade.html">Stones & Charms</a></td></tr>
+            <tr><td><code>upgrade.yml</code></td><td>Max level, Free limits, allowed types, level display, consumed items, failure behavior, and success chance.</td><td><a href="./upgrade-rules.html">Upgrade Rules</a></td></tr>
+            <tr><td><code>stat-registration.yml</code></td><td>Custom stats that MMOUpgrade registers into MMOItems.</td><td><a href="./custom-stats.html">Custom Stats</a></td></tr>
+            <tr><td><code>stat-modifiers.yml</code></td><td>MMOItems stat scaling and Premium enchantment modifiers when items gain or lose levels.</td><td><a href="./stat-modifiers.html">Stat Modifiers</a></td></tr>
+            <tr><td><code>message.yml</code></td><td>Messages sent to players/admins and broadcast text.</td><td><a href="./messages-announcements.html">Messages</a></td></tr>
+            <tr><td><code>announcements.yml</code></td><td>Enables or disables broadcasts when an item reaches configured level milestones.</td><td><a href="./messages-announcements.html">Messages</a></td></tr>
+          </tbody></table>
+        </section>
+        <section class="section" data-search-section>
+          <h2>Recommended Setup Order</h2>
+          <ol class="flow">
+            <li>Set <code>license-key</code> if you use Premium. If it is empty, review the Free limits in <code>upgrade.yml</code>.</li>
+            <li>Edit <code>items.yml</code> so upgrade stones, lucky charms, and protect charms match real MMOItems IDs.</li>
+            <li>Edit <code>upgrade.yml</code> to set max level, allowed types, success formula, and failure behavior.</li>
+            <li>Edit <code>gui.yml</code> to set slots, cost, charge command, and GUI visuals.</li>
+            <li>Edit <code>stat-modifiers.yml</code> to decide how items become stronger at each level.</li>
+            <li>Edit <code>message.yml</code> and <code>announcements.yml</code> for server-facing text.</li>
+            <li>Run <code>/mmoupgrade reload</code>, then test with a real MMOItems item.</li>
+          </ol>
+        </section>
+        <section class="section" data-search-section>
+          <h2>Common Formatting Rules</h2>
+          <div class="grid two">
+            <article class="card"><h3>MiniMessage</h3><p>Text supports MiniMessage tags such as <code>&lt;red&gt;</code>, <code>&lt;aqua&gt;</code>, hex colors, and legacy ampersand colors where conversion is supported.</p></article>
+            <article class="card"><h3>Internal Variables</h3><p>MMOUpgrade variables use curly braces, such as <code>{level}</code>, <code>{name}</code>, <code>{cost}</code>, and <code>{money}</code>, to avoid MiniMessage conflicts.</p></article>
+            <article class="card"><h3>PlaceholderAPI</h3><p>PlaceholderAPI placeholders use <code>%placeholder%</code>, such as <code>%vault_eco_balance_fixed%</code>. Money checks must return a plain number.</p></article>
+            <article class="card"><h3>MMOItems IDs</h3><p>In <code>items.yml</code>, IDs must use <code>TYPE:ITEM_ID</code>, for example <code>CONSUMABLE:UPGRADE_STONE_1</code>.</p></article>
+          </div>
+        </section>
+      </main>
+    </div><script src="./wiki.js"></script></body>
+</html>

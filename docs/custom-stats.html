@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Custom Stats - MMOUpgrade Wiki</title><link rel="stylesheet" href="./styles.css" /></head>
+  <body><header class="topbar"><a class="brand" href="./index.html"><span class="mark">M</span><span><strong>MMOUpgrade</strong><span>User Wiki</span></span></a><label class="search"><span class="hidden">Search</span><input id="search" type="search" placeholder="Search this page..." /></label><span class="version">v2.0 docs</span></header>
+    <div class="layout"><aside class="sidebar"><p class="nav-title">Documentation</p><nav class="nav"><a href="./index.html">Overview</a><a href="./install.html">Install</a><a href="./license.html">Free vs Premium</a><a href="./commands.html">Commands</a><a href="./configuration.html">Config A-Z</a><a href="./gui-economy.html">GUI & Economy</a><a href="./items-upgrade.html">Stones & Charms</a><a href="./upgrade-rules.html">Upgrade Rules</a><a href="./custom-stats.html">Custom Stats</a><a href="./stat-modifiers.html">Stat Modifiers</a><a href="./messages-announcements.html">Messages</a><a href="./troubleshooting.html">Troubleshooting</a></nav></aside>
+      <main class="content">
+        <section class="section page-title" data-search-section><span class="eyebrow">MMOItems</span><h1>MMOUpgrade custom stats</h1><p class="lead">MMOUpgrade registers custom stats into MMOItems at startup. Add them to MMOItems item configs, then regenerate or give the item again.</p></section>
+        <section class="section" data-search-section>
+          <h2>Registered Stats</h2>
+          <table><thead><tr><th>Stat ID</th><th>Type</th><th>License</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td><code>MMOUPGRADE_LEVEL</code></td><td>Double</td><td>Free/Premium</td><td>Stores the current upgrade level.</td></tr>
+            <tr><td><code>MMOUPGRADE_MAX_LEVEL</code></td><td>Double</td><td>Premium</td><td>Overrides <code>max-level</code> for one item.</td></tr>
+            <tr><td><code>MMOUPGRADE_ENABLED</code></td><td>Boolean</td><td>Premium</td><td>Allows the item to be upgraded even when its type is not in <code>allowed-types</code>.</td></tr>
+            <tr><td><code>MMOUPGRADE_STONE_CHANCE</code></td><td>String</td><td>Premium</td><td>Formula that replaces the upgrade stone chance.</td></tr>
+            <tr><td><code>MMOUPGRADE_LUCKY_CHANCE</code></td><td>String</td><td>Premium</td><td>Formula that replaces the lucky charm chance.</td></tr>
+            <tr><td><code>MMOUPGRADE_PROTECT_CHANCE</code></td><td>String</td><td>Premium</td><td>Formula for the protect charm's actual downgrade-prevention chance.</td></tr>
+          </tbody></table>
+        </section>
+        <section class="section" data-search-section>
+          <h2>stat-registration.yml Example</h2>
+          <pre><code>stats:
+  level:
+    id: MMOUPGRADE_LEVEL
+    material: EMERALD
+    name: "MMOUpgrade Level"
+    description:
+      - "Upgrade level stored by MMOUpgrade."
+    compatible-types:
+      - "!block"
+      - "all"
+
+  max-level:
+    id: MMOUPGRADE_MAX_LEVEL
+    material: DIAMOND
+    name: "Upgrade Max Level"
+    description:
+      - "The max level this item can be upgraded to."
+    compatible-types:
+      - "!block"
+      - "all"
+
+  enabled:
+    id: MMOUPGRADE_ENABLED
+    material: EMERALD
+    name: "Upgrade Enabled"
+    description:
+      - "Can this item be upgraded?"
+    compatible-types:
+      - "!block"
+      - "all"</code></pre>
+        </section>
+        <section class="section" data-search-section>
+          <h2>Example on an MMOItems Item</h2>
+          <pre><code># Conceptual example inside an MMOItems item config
+MMOUPGRADE_MAX_LEVEL: 50
+MMOUPGRADE_ENABLED: true
+MMOUPGRADE_STONE_CHANCE: "100 - ({level} * 5)"
+MMOUPGRADE_LUCKY_CHANCE: "10 + ({level} * 1)"
+MMOUPGRADE_PROTECT_CHANCE: "80"</code></pre>
+          <div class="callout gold"><strong>Formula:</strong> use <code>{level}</code> for the current level. For example, <code>100 - ({level} * 5)</code> gives 100% at level 0 and 50% at level 10 before bonuses and caps.</div>
+        </section>
+      </main>
+    </div><script src="./wiki.js"></script></body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Stones & Charms - MMOUpgrade Wiki</title><link rel="stylesheet" href="./styles.css" /></head>
+  <body><header class="topbar"><a class="brand" href="./index.html"><span class="mark">M</span><span><strong>MMOUpgrade</strong><span>User Wiki</span></span></a><label class="search"><span class="hidden">Search</span><input id="search" type="search" placeholder="Search this page..." /></label><span class="version">v2.0 docs</span></header>
+    <div class="layout"><aside class="sidebar"><p class="nav-title">Documentation</p><nav class="nav"><a href="./index.html">Overview</a><a href="./install.html">Install</a><a href="./license.html">Free vs Premium</a><a href="./commands.html">Commands</a><a href="./configuration.html">Config A-Z</a><a href="./gui-economy.html">GUI & Economy</a><a href="./items-upgrade.html">Stones & Charms</a><a href="./upgrade-rules.html">Upgrade Rules</a><a href="./custom-stats.html">Custom Stats</a><a href="./stat-modifiers.html">Stat Modifiers</a><a href="./messages-announcements.html">Messages</a><a href="./troubleshooting.html">Troubleshooting</a></nav></aside>
+      <main class="content">
+        <section class="section page-title" data-search-section><span class="eyebrow">Items</span><h1>Upgrade stones and charms</h1><p class="lead"><code>items.yml</code> only accepts MMOItems items. Each entry maps an MMOUpgrade internal key to a specific MMOItems item.</p></section>
+        <section class="section" data-search-section>
+          <h2>Item Groups</h2>
+          <table><thead><tr><th>Group</th><th>GUI Slot</th><th>Purpose</th><th>Needs Chance?</th></tr></thead><tbody>
+            <tr><td><code>upgrade-stones</code></td><td><code>upgrade-stone</code></td><td>Provides the base success chance.</td><td>Yes</td></tr>
+            <tr><td><code>lucky-charms</code></td><td><code>lucky-charm</code></td><td>Adds extra success chance when inserted.</td><td>Yes</td></tr>
+            <tr><td><code>protect-charms</code></td><td><code>protect-charm</code></td><td>Prevents downgrade on failure when the rules allow it.</td><td>Not required</td></tr>
+          </tbody></table>
+        </section>
+        <section class="section" data-search-section>
+          <h2>Full Example</h2>
+          <pre><code>upgrade-stones:
+  basic:
+    id: CONSUMABLE:UPGRADE_STONE_1
+    chance: 100
+  advanced:
+    id: CONSUMABLE:UPGRADE_STONE_2
+    chance: 50
+  rare:
+    id: CONSUMABLE:UPGRADE_STONE_3
+    chance: 25
+
+lucky-charms:
+  basic:
+    id: CONSUMABLE:LUCKY_CHARM_1
+    chance: 75
+  advanced:
+    id: CONSUMABLE:LUCKY_CHARM_2
+    chance: 50
+  rare:
+    id: CONSUMABLE:LUCKY_CHARM_3
+    chance: 25
+
+protect-charms:
+  basic:
+    id: CONSUMABLE:PROTECT_CHARM_1
+  advanced:
+    id: CONSUMABLE:PROTECT_CHARM_2
+  rare:
+    id: CONSUMABLE:PROTECT_CHARM_3</code></pre>
+          <div class="callout"><strong>ID format:</strong> <code>CONSUMABLE:UPGRADE_STONE_1</code> means MMOItems type <code>CONSUMABLE</code> and item ID <code>UPGRADE_STONE_1</code>.</div>
+        </section>
+      </main>
+    </div><script src="./wiki.js"></script></body>
+</html>

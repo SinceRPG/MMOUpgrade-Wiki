@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Messages - MMOUpgrade Wiki</title><link rel="stylesheet" href="./styles.css" /></head>
+  <body><header class="topbar"><a class="brand" href="./index.html"><span class="mark">M</span><span><strong>MMOUpgrade</strong><span>User Wiki</span></span></a><label class="search"><span class="hidden">Search</span><input id="search" type="search" placeholder="Search this page..." /></label><span class="version">v2.0 docs</span></header>
+    <div class="layout"><aside class="sidebar"><p class="nav-title">Documentation</p><nav class="nav"><a href="./index.html">Overview</a><a href="./install.html">Install</a><a href="./license.html">Free vs Premium</a><a href="./commands.html">Commands</a><a href="./configuration.html">Config A-Z</a><a href="./gui-economy.html">GUI & Economy</a><a href="./items-upgrade.html">Stones & Charms</a><a href="./upgrade-rules.html">Upgrade Rules</a><a href="./custom-stats.html">Custom Stats</a><a href="./stat-modifiers.html">Stat Modifiers</a><a href="./messages-announcements.html">Messages</a><a href="./troubleshooting.html">Troubleshooting</a></nav></aside>
+      <main class="content">
+        <section class="section page-title" data-search-section><span class="eyebrow">Messages</span><h1>Messages and announcements</h1><p class="lead"><code>message.yml</code> contains text sent to players and admins. <code>announcements.yml</code> enables broadcasts when an item reaches configured level milestones.</p></section>
+        <section class="section" data-search-section>
+          <h2>Message Placeholders</h2>
+          <table><thead><tr><th>Placeholder</th><th>Used In</th><th>Meaning</th></tr></thead><tbody>
+            <tr><td><code>{path}</code>, <code>{value}</code></td><td><code>config-updated</code></td><td>The config path that was changed and its new value.</td></tr>
+            <tr><td><code>{stats}</code></td><td><code>stats-list</code></td><td>Registered stats list.</td></tr>
+            <tr><td><code>{cost}</code>, <code>{money}</code></td><td><code>not-enough-money</code></td><td>Upgrade cost and the player's current balance.</td></tr>
+            <tr><td><code>{player}</code>, <code>{item}</code>, <code>{level}</code></td><td><code>announcement-upgrade-level</code></td><td>Broadcast data for level milestones.</td></tr>
+          </tbody></table>
+        </section>
+        <section class="section" data-search-section>
+          <h2>message.yml Example</h2>
+          <pre><code>prefix: "&lt;gray&gt;[&lt;aqua&gt;MMOUpgrade&lt;/aqua&gt;]&lt;/gray&gt; "
+
+no-permission: "&lt;red&gt;You do not have permission to use this command.&lt;/red&gt;"
+unknown-player: "&lt;red&gt;That player is not online.&lt;/red&gt;"
+player-only: "&lt;red&gt;Only players can use this command.&lt;/red&gt;"
+
+usage-player: "&lt;yellow&gt;Usage: /mmoupgrade upgrade|reload&lt;/yellow&gt;"
+usage-console: "&lt;yellow&gt;Usage: mmoupgrade upgrade &lt;player&gt; or mmoupgrade reload&lt;/yellow&gt;"
+reload: "&lt;green&gt;Configuration reloaded.&lt;/green&gt;"
+config-updated: "&lt;green&gt;Updated {path} to {value}.&lt;/green&gt;"
+stats-list: "&lt;gray&gt;Registered stats: &lt;white&gt;{stats}&lt;/white&gt;&lt;/gray&gt;"
+
+upgrade-success: "&lt;green&gt;Upgrade successful.&lt;/green&gt;"
+upgrade-failed: "&lt;red&gt;Upgrade failed. The item was downgraded.&lt;/red&gt;"
+upgrade-failed-protected: "&lt;yellow&gt;Upgrade failed, but the protect charm kept the current level.&lt;/yellow&gt;"
+upgrade-failed-no-downgrade: "&lt;red&gt;Upgrade failed.&lt;/red&gt;"
+
+missing-upgrade-item: "&lt;red&gt;Place the item you want to upgrade in the upgrade item slot.&lt;/red&gt;"
+missing-upgrade-stone: "&lt;red&gt;Place an upgrade stone in the upgrade stone slot.&lt;/red&gt;"
+invalid-upgrade-item-type: "&lt;red&gt;This MMOItems type cannot be upgraded.&lt;/red&gt;"
+invalid-upgrade-stone: "&lt;red&gt;This item is not a configured upgrade stone.&lt;/red&gt;"
+invalid-lucky-charm: "&lt;red&gt;This item is not a configured lucky charm.&lt;/red&gt;"
+invalid-protect-charm: "&lt;red&gt;This item is not a configured protect charm.&lt;/red&gt;"
+
+not-enough-money: "&lt;red&gt;You need {cost} to upgrade. You only have {money}.&lt;/red&gt;"
+max-level: "&lt;red&gt;This item has reached the maximum upgrade level.&lt;/red&gt;"
+invalid-money-placeholder: "&lt;red&gt;The configured money placeholder did not return a valid number.&lt;/red&gt;"
+
+announcement-upgrade-level: "&lt;yellow&gt;{player} upgraded {item} to level {level}.&lt;/yellow&gt;"</code></pre>
+        </section>
+        <section class="section" data-search-section>
+          <h2>announcements.yml Example</h2>
+          <pre><code>enabled: true
+
+levels:
+  - 5
+  - 10
+  - 15
+  - 20
+  - 25</code></pre>
+          <p>If <code>enabled: false</code>, MMOUpgrade will not broadcast even when an item reaches a listed level.</p>
+        </section>
+      </main>
+    </div><script src="./wiki.js"></script></body>
+</html>

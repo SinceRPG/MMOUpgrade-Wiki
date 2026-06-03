@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>GUI & Economy - MMOUpgrade Wiki</title><link rel="stylesheet" href="./styles.css" /></head>
+  <body><header class="topbar"><a class="brand" href="./index.html"><span class="mark">M</span><span><strong>MMOUpgrade</strong><span>User Wiki</span></span></a><label class="search"><span class="hidden">Search</span><input id="search" type="search" placeholder="Search this page..." /></label><span class="version">v2.0 docs</span></header>
+    <div class="layout"><aside class="sidebar"><p class="nav-title">Documentation</p><nav class="nav"><a href="./index.html">Overview</a><a href="./install.html">Install</a><a href="./license.html">Free vs Premium</a><a href="./commands.html">Commands</a><a href="./configuration.html">Config A-Z</a><a href="./gui-economy.html">GUI & Economy</a><a href="./items-upgrade.html">Stones & Charms</a><a href="./upgrade-rules.html">Upgrade Rules</a><a href="./custom-stats.html">Custom Stats</a><a href="./stat-modifiers.html">Stat Modifiers</a><a href="./messages-announcements.html">Messages</a><a href="./troubleshooting.html">Troubleshooting</a></nav></aside>
+      <main class="content">
+        <section class="section page-title" data-search-section><span class="eyebrow">GUI</span><h1>GUI and economy</h1><p class="lead"><code>gui.yml</code> controls the upgrade inventory, placeholder buttons, cost, money placeholders, and the charge command.</p></section>
+        <section class="section" data-search-section>
+          <h2>Key Reference</h2>
+          <table><thead><tr><th>Key</th><th>Meaning</th></tr></thead><tbody>
+            <tr><td><code>title</code></td><td>Inventory title. MiniMessage is supported.</td></tr>
+            <tr><td><code>size</code></td><td>Inventory slot count. It must be a multiple of 9, commonly 27, 36, 45, or 54.</td></tr>
+            <tr><td><code>buttons.&lt;id&gt;.slots</code></td><td>Slots used by a button or placeholder. Slot indexes start at 0.</td></tr>
+            <tr><td><code>confirm.cost</code></td><td>Money required for one upgrade attempt.</td></tr>
+            <tr><td><code>confirm.money-placeholder</code></td><td>PlaceholderAPI placeholder that returns the player's balance as a plain number.</td></tr>
+            <tr><td><code>confirm.money-display-placeholder</code></td><td>PlaceholderAPI placeholder used for formatted balance display in messages.</td></tr>
+            <tr><td><code>confirm.charge-command</code></td><td>Console command used to charge the player. <code>{amount}</code> is the cost.</td></tr>
+            <tr><td><code>custom-model-data</code>, <code>item-model</code>, <code>tooltip-style</code></td><td>Resource pack and modern item component support.</td></tr>
+          </tbody></table>
+        </section>
+        <section class="section" data-search-section>
+          <h2>Full Example</h2>
+          <pre><code>title: "&lt;dark_gray&gt;Item Upgrade&lt;/dark_gray&gt;"
+size: 45
+
+buttons:
+  confirm:
+    material: LIME_STAINED_GLASS_PANE
+    amount: 1
+    slots: [ 40 ]
+    cost: 10000
+    money-placeholder: "%vault_eco_balance_fixed%"
+    money-display-placeholder: "%vault_eco_balance_commas%"
+    charge-command: "eco take %player_name% {amount}"
+    glow: true
+    hide-flags: true
+    unbreakable: true
+    custom-model-data: 0
+    item-model: ""
+    tooltip-style: ""
+    hide-tooltip: false
+    display: "&lt;green&gt;Upgrade Item&lt;/green&gt;"
+    lore:
+      - "&lt;gray&gt;Cost: &lt;white&gt;{cost}&lt;/white&gt;&lt;/gray&gt;"
+      - "&lt;gray&gt;Success chance is calculated from the stone, level, and charms.&lt;/gray&gt;"
+
+  upgrade-stone:
+    material: PURPLE_STAINED_GLASS_PANE
+    amount: 1
+    slots: [ 4 ]
+    display: "&lt;aqua&gt;Upgrade Stone&lt;/aqua&gt;"
+    lore:
+      - "&lt;gray&gt;Place a configured upgrade stone here.&lt;/gray&gt;"
+
+  lucky-charm:
+    material: WHITE_STAINED_GLASS_PANE
+    amount: 1
+    slots: [ 20 ]
+    display: "&lt;aqua&gt;Lucky Charm&lt;/aqua&gt;"
+    lore:
+      - "&lt;gray&gt;Optional. Adds extra success chance.&lt;/gray&gt;"
+
+  upgrade-item:
+    material: CYAN_STAINED_GLASS_PANE
+    amount: 1
+    slots: [ 22 ]
+    display: "&lt;aqua&gt;Upgrade Item&lt;/aqua&gt;"
+    lore:
+      - "&lt;gray&gt;Place the MMOItems item to upgrade here.&lt;/gray&gt;"
+
+  protect-charm:
+    material: YELLOW_STAINED_GLASS_PANE
+    amount: 1
+    slots: [ 24 ]
+    display: "&lt;aqua&gt;Protect Charm&lt;/aqua&gt;"
+    lore:
+      - "&lt;gray&gt;Optional. Prevents downgrade on failure.&lt;/gray&gt;"
+
+  filler:
+    material: BLACK_STAINED_GLASS_PANE
+    amount: 1
+    slots: [ 0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44 ]
+    display: " "
+    lore: [ ]</code></pre>
+          <div class="callout gold"><strong>Economy:</strong> if <code>money-placeholder</code> returns commas, currency symbols, or text, MMOUpgrade may send <code>invalid-money-placeholder</code>. Use a plain-number placeholder for checks and a formatted placeholder for display.</div>
+        </section>
+      </main>
+    </div><script src="./wiki.js"></script></body>
+</html>

@@ -234,6 +234,14 @@ h1 {
   padding: 56px 0 0;
 }
 
+.page-title {
+  padding-top: 64px;
+}
+
+.page-title h1 {
+  font-size: 48px;
+}
+
 .section > h2 {
   margin: 0 0 14px;
   font-size: 34px;
@@ -410,6 +418,12 @@ tr:last-child td {
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.text-link {
+  display: inline-flex;
+  margin-top: 4px;
+  font-weight: 800;
 }
 
 .footer {

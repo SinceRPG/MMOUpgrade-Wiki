@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Free vs Premium - MMOUpgrade Wiki</title><link rel="stylesheet" href="./styles.css" /></head>
+  <body>
+    <header class="topbar"><a class="brand" href="./index.html"><span class="mark">M</span><span><strong>MMOUpgrade</strong><span>User Wiki</span></span></a><label class="search"><span class="hidden">Search</span><input id="search" type="search" placeholder="Search this page..." /></label><span class="version">v2.0 docs</span></header>
+    <div class="layout"><aside class="sidebar"><p class="nav-title">Documentation</p><nav class="nav"><a href="./index.html">Overview</a><a href="./install.html">Install</a><a href="./license.html">Free vs Premium</a><a href="./commands.html">Commands</a><a href="./configuration.html">Config A-Z</a><a href="./gui-economy.html">GUI & Economy</a><a href="./items-upgrade.html">Stones & Charms</a><a href="./upgrade-rules.html">Upgrade Rules</a><a href="./custom-stats.html">Custom Stats</a><a href="./stat-modifiers.html">Stat Modifiers</a><a href="./messages-announcements.html">Messages</a><a href="./troubleshooting.html">Troubleshooting</a></nav></aside>
+      <main class="content">
+        <section class="section page-title" data-search-section><span class="eyebrow">License</span><h1>Free vs Premium</h1><p class="lead">Free mode keeps the basic upgrade system usable. Premium unlocks full limits, per-item overrides, and enchantment upgrades.</p></section>
+        <section class="section" data-search-section>
+          <h2>Feature Matrix</h2>
+          <table><thead><tr><th>Feature</th><th>Free</th><th>Premium</th></tr></thead><tbody>
+            <tr><td>GUI, upgrade stones, lucky charms, protect charms</td><td>Available</td><td>Available</td></tr>
+            <tr><td>Maximum item level</td><td>Limited by <code>license-limits.free.max-level</code></td><td>Uses <code>max-level</code> and <code>MMOUPGRADE_MAX_LEVEL</code></td></tr>
+            <tr><td>Maximum success chance</td><td>Limited by <code>license-limits.free.max-success-chance</code></td><td>Uses <code>success-chance.max-percent</code></td></tr>
+            <tr><td>Per-item custom stats</td><td>Ignored except <code>MMOUPGRADE_LEVEL</code></td><td>Available</td></tr>
+            <tr><td>Upgrade enchantments from <code>stat-modifiers.yml</code></td><td>Not applied</td><td>Available</td></tr>
+            <tr><td>Custom formulas for stone/lucky/protect chance</td><td>Not available</td><td>Available</td></tr>
+          </tbody></table>
+        </section>
+        <section class="section" data-search-section>
+          <h2>License Config</h2>
+          <pre><code># config.yml
+license-key: ""
+
+debug:
+  enchant-modifiers: false</code></pre>
+          <p>An empty <code>license-key</code> runs Free mode. With a valid key, startup or reload logs that the Premium license was verified.</p>
+          <pre><code># upgrade.yml
+license-limits:
+  free:
+    max-level: 10
+    max-success-chance: 75</code></pre>
+          <div class="callout"><strong>Premium enchantments:</strong> the <code>enchantments:</code> section in <code>stat-modifiers.yml</code> only runs when <code>licenseManager().isPremium()</code> is true.</div>
+        </section>
+      </main>
+    </div><script src="./wiki.js"></script>
+  </body>
+</html>

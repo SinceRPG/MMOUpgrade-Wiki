@@ -1,6 +1,7 @@
 const searchInput = document.querySelector("#search");
 const sections = Array.from(document.querySelectorAll("[data-search-section]"));
 const navLinks = Array.from(document.querySelectorAll(".nav a"));
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
 function normalize(value) {
   return value.toLowerCase().replace(/\s+/g, " ").trim();
@@ -31,10 +32,20 @@ const observer = new IntersectionObserver(
     }
 
     navLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
+      const href = link.getAttribute("href") || "";
+      if (href.startsWith("#")) {
+        link.classList.toggle("active", href === `#${visible.target.id}`);
+      }
     });
   },
   { rootMargin: "-20% 0px -65% 0px", threshold: [0.1, 0.25, 0.5] }
 );
 
 sections.forEach((section) => observer.observe(section));
+
+navLinks.forEach((link) => {
+  const linkPage = link.getAttribute("href")?.split("#")[0].replace("./", "") || "";
+  if (linkPage === currentPage) {
+    link.classList.add("active");
+  }
+});
