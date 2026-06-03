@@ -12,6 +12,7 @@
             <article class="card"><h3>Item stops at level 10</h3><p>The server is probably in Free mode or the license was not verified. Free mode is capped by <code>license-limits.free.max-level</code>.</p></article>
             <article class="card"><h3>Chance never exceeds 75%</h3><p>Free mode is capped by <code>license-limits.free.max-success-chance</code>. Premium uses <code>success-chance.max-percent</code>.</p></article>
             <article class="card"><h3>Custom stats do not work</h3><p>Check Premium mode, exact stat IDs, correct value types, and whether the item was regenerated or given again after editing MMOItems config.</p></article>
+            <article class="card"><h3>Element modifier does not apply</h3><p>Element modifiers are Premium-only. Use flattened IDs such as <code>fire-damage</code> or <code>fire-defense-percent</code>, and make sure the element stat already exists on the item.</p></article>
             <article class="card"><h3>Enchantments are not upgraded</h3><p><code>enchantments:</code> is Premium-only. If Premium is active, enable <code>debug.enchant-modifiers: true</code> to inspect skip/apply logs.</p></article>
             <article class="card"><h3>Money is not charged</h3><p>Check that <code>charge-command</code> works from console. <code>{amount}</code> must be placed where your economy plugin expects the amount.</p></article>
             <article class="card"><h3>Invalid money placeholder</h3><p><code>money-placeholder</code> must return a plain number. Do not use a placeholder with commas, currency symbols, or text for balance checks.</p></article>
@@ -23,6 +24,7 @@
             <li>Run <code>/mmoupgrade reload</code> after editing files.</li>
             <li>Read the console to confirm whether the license is valid, expired, invalid, or unreachable.</li>
             <li>Use <code>/mmoupgrade stats</code> to verify stat IDs before writing <code>stat-modifiers.yml</code>.</li>
+            <li>For element stats, confirm Premium is active and the MMOItems item has the matching <code>element.&lt;element&gt;.&lt;stat&gt;</code> entry before testing the upgrade.</li>
             <li>Test with a newly given MMOItems item instead of an old one after changing custom stats.</li>
             <li>Enable <code>debug.enchant-modifiers</code> when debugging Premium enchantment modifiers.</li>
           </ol>
